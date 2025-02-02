@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "Skipify",
+  "version": "1.0",
+  "description": "Skipify: No ads, pure music.",
+  "icons": {
+    "128": "icon128.png"
+  },
+  "permissions": [
+    "activeTab", 
+    "scripting", 
+    "tabs",
+    "storage",
+    "declarativeNetRequest"
+  ],
+  "host_permissions": [
+    "*://*.spotify.com/*",
+    "\u003Call_urls\u003E"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "spotify/adDetector.js",
+        "spotify/config.js",
+        "spotify/domObserver.js",
+        "spotify/mediaTracker.js"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "content_script.js",
+        "spotify/config.js",
+        "content_start_mellowtel.js"
+        ],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

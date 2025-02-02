@@ -1,0 +1,1 @@
+null==window.originalCreateElement&&(window.originalCreateElement=document.createElement),document.createElement=(document.createElement,function(e){let n=window.originalCreateElement.apply(this,arguments);return"video"!==e&&"audio"!==e||(void 0===window.mediaArray&&(window.mediaArray=[]),window.mediaArray.length<25&&window.mediaArray.push(n)),n});
